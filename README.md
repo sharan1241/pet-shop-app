@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Pet Shop App
 
 React Native mobile app for managing pets and shopping cart.
@@ -22,3 +23,7 @@ Zustand
 React Hook Form
 Yup
 React Native Image Picker
+=======
+# pet-shop-app
+Pet Shop Assessment Code
+>>>>>>> bd5c127e36936dd93d27da7dc311dc6129858216
