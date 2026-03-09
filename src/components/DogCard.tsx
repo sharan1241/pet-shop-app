@@ -3,7 +3,7 @@ import { View, Text, Image, Button, StyleSheet } from "react-native"
 import { useCartStore } from "../store/cartStore"
 
 export default function DogCard({ dog }: any) {
-
+    console.log(dog, "here is the individual dog status")
     const addToCart = useCartStore((s: any) => s.addToCart)
     const cart = useCartStore((s: any) => s.cart)
 
@@ -30,12 +30,20 @@ export default function DogCard({ dog }: any) {
                 </Text>
 
                 <View style={styles.button}>
-                    <Button
-                        title={isInCart ? "Added to Cart ✓" : "Add to Cart"}
-                        onPress={() => addToCart(dog)}
-                        disabled={isInCart}
-                        color={isInCart ? "gray" : "#2ecc71"}
-                    />
+                    {dog.purchased ? (
+                        <Button
+                            title="Out of Stock"
+                            disabled
+                            color="red"
+                        />
+                    ) : (
+                        <Button
+                            title={isInCart ? "Added to Cart ✓" : "Add to Cart"}
+                            onPress={() => addToCart(dog)}
+                            disabled={isInCart}
+                            color={isInCart ? "gray" : "#2ecc71"}
+                        />
+                    )}
                 </View>
 
             </View>

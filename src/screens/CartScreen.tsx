@@ -14,9 +14,10 @@ import {
 
 import { useCartStore } from "../store/cartStore"
 import LottieView from "lottie-react-native"
+import { useDogStore } from "../store/dogStore"
 
 export default function CartScreen() {
-
+    const purchaseCart = useDogStore((s: any) => s.purchaseCart)
     const cart = useCartStore((s: any) => s.cart)
     const remove = useCartStore((s: any) => s.removeFromCart)
     const clear = useCartStore((s: any) => s.clearCart)
@@ -24,7 +25,10 @@ export default function CartScreen() {
     const [modalVisible, setModalVisible] = useState(false);
     const [purchasedDogs, setPurchasedDogs] = useState<any[]>([])
     const [paidAmount, setPaidAmount] = useState(0)
-    const purchase = () => { setPurchasedDogs(cart); setPaidAmount(total()); setModalVisible(true); clear() }
+    const purchase = () => {
+        purchaseCart(cart);
+        setPurchasedDogs(cart); setPaidAmount(total()); setModalVisible(true); clear()
+    }
 
     return (
 

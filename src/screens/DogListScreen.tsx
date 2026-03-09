@@ -6,7 +6,6 @@ import { useDogStore } from "../store/dogStore"
 export default function DogListScreen() {
 
     const dogs = useDogStore((s: any) => s.dogs)
-
     return (
         <View style={styles.container}>
 

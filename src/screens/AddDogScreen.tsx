@@ -11,7 +11,7 @@ import {
     TouchableOpacity,
     ActivityIndicator
 } from "react-native"
-
+import Toast from 'react-native-simple-toast'
 import { launchImageLibrary } from "react-native-image-picker"
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view"
 import { useForm, Controller } from "react-hook-form"
@@ -116,7 +116,7 @@ export default function AddDogScreen() {
 
         addDog(dog)
 
-        Alert.alert("Success", "Dog added successfully")
+        Toast.show('Dog added successfully!', Toast.SHORT)
 
         reset()
         setImage("")
